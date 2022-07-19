@@ -17,12 +17,15 @@ def add_mimetypes():
         mime_types.add_type(mime_type, ext)
 
 def print_usage():
-    print('html2ebook.py -i <input_dir> -o <output_file> [--index <index_page>] [--identifier <identifier>] [--title <title>] [--sort]')
+    print('html2ebook.py -i <input_dir> -o <output_file> [--help] [--index <index_page>] [--identifier <identifier>] [--title <title>] [--author <author>] [--cover <cover>] [--sort]')
     print('-i --input: input directory')
     print('-o --output: output file')
+    print('--help: print this help')
     print('--index: index page. Default is index.html')
     print('--identifier: identifier. Default is "html2ebook"')
     print('--title: title. Default is the title of index page')
+    print('--author: author. ')
+    print('--cover: cover image. Default is cover.jpg')
     print('--sort: sort files by name')
 
 def get_mime_type(file_name):
@@ -74,7 +77,7 @@ def add_assest_to_book(book:epub.EpubBook, asset_file:str,file_name:str,mime_typ
 
 def main(argv):
 
-    opts,_ = getopt(argv, 'i:o:',["input=", "output=","index=","identifier=","sort","author=","title=","cover="])
+    opts,_ = getopt(argv, 'i:o:',["input=", "output=","index=","identifier=","help","sort","author=","title=","cover="])
 
     input_dir = ''
     output_file = ''
@@ -102,6 +105,9 @@ def main(argv):
             author = arg
         elif opt == '--cover':
             cover = arg
+        elif opt == '--help':
+            print_usage()
+            return
         else:
             print("Unknown option: " + str(opt))
             print_usage()
