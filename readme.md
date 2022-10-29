@@ -1,6 +1,6 @@
 # Html2ebook
 
-Html2ebook is tool that help you convert a html webside to an epub-format ebook.
+Html2ebook is a tool that help you convert a html webside to an epub-format ebook.
 
 Html2ebook will copy all files that is in the input directory to the ebook.For .html files,they will be added to the toc and the spine.If `--title` option specificed,those file will be sorted by name.
 

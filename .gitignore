@@ -1,5 +1,6 @@
 .vscode
 books
 out
+*.epub
 
 __pycache__
